@@ -1,0 +1,16 @@
+D:\Projects\Entity Framework\Project\Store System\Store System\bin\Debug\Store System.exe.config
+D:\Projects\Entity Framework\Project\Store System\Store System\bin\Debug\Store System.exe
+D:\Projects\Entity Framework\Project\Store System\Store System\bin\Debug\Store System.pdb
+D:\Projects\Entity Framework\Project\Store System\Store System\bin\Debug\EntityFramework.dll
+D:\Projects\Entity Framework\Project\Store System\Store System\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\Entity Framework\Project\Store System\Store System\bin\Debug\EntityFramework.xml
+D:\Projects\Entity Framework\Project\Store System\Store System\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\Entity Framework\Project\Store System\Store System\obj\Debug\Store System.csproj.AssemblyReference.cache
+D:\Projects\Entity Framework\Project\Store System\Store System\obj\Debug\Store System.csproj.SuggestedBindingRedirects.cache
+D:\Projects\Entity Framework\Project\Store System\Store System\obj\Debug\Store_System.Form1.resources
+D:\Projects\Entity Framework\Project\Store System\Store System\obj\Debug\Store_System.Properties.Resources.resources
+D:\Projects\Entity Framework\Project\Store System\Store System\obj\Debug\Store System.csproj.GenerateResource.cache
+D:\Projects\Entity Framework\Project\Store System\Store System\obj\Debug\Store System.csproj.CoreCompileInputs.cache
+D:\Projects\Entity Framework\Project\Store System\Store System\obj\Debug\Store System.csproj.CopyComplete
+D:\Projects\Entity Framework\Project\Store System\Store System\obj\Debug\Store System.exe
+D:\Projects\Entity Framework\Project\Store System\Store System\obj\Debug\Store System.pdb

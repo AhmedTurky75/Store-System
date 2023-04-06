@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="website" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="exports" Relationship="Self.FK_export_Customer" FromRole="Customer" ToRole="export" />
+  </EntityType>
+  <EntityType Name="export">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_id" Type="Int32" />
+    <Property Name="Storage_id" Type="Int32" />
+    <Property Name="Customer_id" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_export_Customer" FromRole="export" ToRole="Customer" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_export_Product" FromRole="export" ToRole="Product" />
+    <NavigationProperty Name="Store" Relationship="Self.FK_export_Store" FromRole="export" ToRole="Store" />
+  </EntityType>
+  <EntityType Name="import">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_id" Type="Int32" />
+    <Property Name="Storage_id" Type="Int32" />
+    <Property Name="Supplier_id" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Production_Date" Type="DateTime" Precision="0" />
+    <Property Name="Expiration_Date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_import_Product" FromRole="import" ToRole="Product" />
+    <NavigationProperty Name="Store" Relationship="Self.FK_import_Store" FromRole="import" ToRole="Store" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK_import_Supplier" FromRole="import" ToRole="Supplier" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="exports" Relationship="Self.FK_export_Product" FromRole="Product" ToRole="export" />
+    <NavigationProperty Name="imports" Relationship="Self.FK_import_Product" FromRole="Product" ToRole="import" />
+    <NavigationProperty Name="Stores" Relationship="Self.Product_Store" FromRole="Product" ToRole="Store" />
+  </EntityType>
+  <EntityType Name="Store">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="manager" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="exports" Relationship="Self.FK_export_Store" FromRole="Store" ToRole="export" />
+    <NavigationProperty Name="imports" Relationship="Self.FK_import_Store" FromRole="Store" ToRole="import" />
+    <NavigationProperty Name="Products" Relationship="Self.Product_Store" FromRole="Store" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="website" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="imports" Relationship="Self.FK_import_Supplier" FromRole="Supplier" ToRole="import" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_export_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="export" Type="Self.export" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="export">
+        <PropertyRef Name="Customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_export_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="export" Type="Self.export" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="export">
+        <PropertyRef Name="Product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_export_Store">
+    <End Role="Store" Type="Self.Store" Multiplicity="0..1" />
+    <End Role="export" Type="Self.export" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Store">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="export">
+        <PropertyRef Name="Storage_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_import_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="import" Type="Self.import" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="import">
+        <PropertyRef Name="Product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_import_Store">
+    <End Role="Store" Type="Self.Store" Multiplicity="0..1" />
+    <End Role="import" Type="Self.import" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Store">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="import">
+        <PropertyRef Name="Storage_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_import_Supplier">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="import" Type="Self.import" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="import">
+        <PropertyRef Name="Supplier_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Product_Store">
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <End Role="Store" Type="Self.Store" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="Store_SystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="exports" EntityType="Self.export" />
+    <EntitySet Name="imports" EntityType="Self.import" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="Stores" EntityType="Self.Store" />
+    <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_export_Customer" Association="Self.FK_export_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="export" EntitySet="exports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_export_Product" Association="Self.FK_export_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="export" EntitySet="exports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_export_Store" Association="Self.FK_export_Store">
+      <End Role="Store" EntitySet="Stores" />
+      <End Role="export" EntitySet="exports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_import_Product" Association="Self.FK_import_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="import" EntitySet="imports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_import_Store" Association="Self.FK_import_Store">
+      <End Role="Store" EntitySet="Stores" />
+      <End Role="import" EntitySet="imports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_import_Supplier" Association="Self.FK_import_Supplier">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="import" EntitySet="imports" />
+    </AssociationSet>
+    <AssociationSet Name="Product_Store" Association="Self.Product_Store">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Store" EntitySet="Stores" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
