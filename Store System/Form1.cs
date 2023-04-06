@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+
 namespace Store_System
 {
     public partial class Form1 : Form
@@ -20,6 +21,8 @@ namespace Store_System
             RefreshImports();
             RefreshExports();
             RefreshTransferes();
+            RefreshStoreReports();
+            RefreshProductReport();
         }
         #region Refresh Data
         private void RefreshData()
@@ -140,6 +143,25 @@ namespace Store_System
             foreach (var store in stores)
             {
                 ToStoreIdcbox3.Items.Add(store.id);
+            }
+        }
+        private void RefreshStoreReports()
+        {
+            comboBox1.Items.Clear();
+            var stores = context.Stores;
+            foreach (var store in stores)
+            {
+                comboBox1.Items.Add(store.id);
+            }
+        }
+
+        private void RefreshProductReport()
+        {
+            comboBox2.Items.Clear();
+            var products = context.Products;
+            foreach (var product in products)
+            {
+                comboBox2.Items.Add(product.id);
             }
         }
         #endregion
@@ -677,13 +699,138 @@ namespace Store_System
 
 
 
+        #endregion
+
+        #region Store Report
+
+        public void FillStoreReport()
+        {
+            int storeID = int.Parse(comboBox1.Text);
+            var query = (from store in context.Stores
+                         where store.id == storeID
+                         //  from product in store.Products
+                         from import in store.imports
+                         where import.Date >= dateTimePicker1.Value
+                          && import.Date <= dateTimePicker2.Value
+                         select new
+                         {
+                             StoreID = store.id,
+                             store.address,
+                             importID = import.Product_id,
+                             ProductsName = import.Product.name,
+                             Quantity = import.Quantity,
+                             import.Production_Date,
+                             import.Expiration_Date
+                         }).ToList();
+            dataGridView1.DataSource = query;
+        }
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FillStoreReport();
+        }
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            FillStoreReport();
+        }
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            FillStoreReport();
+        }
+        #endregion
+
+        #region Product Report
+        public void FillProductReport()
+        {
+            int productID = int.Parse(comboBox2.Text);
+            int storeID = int.Parse(comboBox3.Text);
+            var query = (from product in context.Products
+                         where product.id == productID
+                         from import in product.imports
+                         where import.Store.id == storeID
+                         && import.Date >= dateTimePicker4.Value
+                          && import.Date <= dateTimePicker3.Value
+                         select new
+                         {
+                             productID = product.id,
+                             ProductsName = import.Product.name,
+                             StoreID = import.Store.id,
+                             import.Store.address,
+                             Quantity = import.Quantity,
+                             import.Production_Date,
+                             import.Expiration_Date
+                         }).ToList();
+            dataGridView2.DataSource = query;
+        }
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int productID = int.Parse(comboBox2.Text);
+            Product product = context.Products.Find(productID);
+            comboBox3.Items.Clear();
+            foreach (var store in product.Stores)
+            {
+                comboBox3.Items.Add(store.id);
+            }
+            if (product.Stores.Count() == 0)
+            {
+                comboBox3.Items.Add(0);
+            }
+
+        }
+
+        private void DisplayProductReport_Click(object sender, EventArgs e)
+        {
+            FillProductReport();
+        }
+
+        #endregion
+
+        #region Product Date Report
+
+        public void FillProductByProductionDateReport()
+        {
+            var query = (from product in context.Products
+
+                         from import in product.imports
+                         where import.Production_Date <= dateTimePicker5.Value
+                         select new
+                         {
+                             productID = product.id,
+                             ProductsName = import.Product.name,
+                             import.Store.address,
+                             Quantity = import.Quantity,
+                             import.Production_Date,
+                             import.Expiration_Date
+                         }).ToList();
+            dataGridView3.DataSource = query;
+        }
 
 
+        private void DisplayByProductionDatebtn_Click(object sender, EventArgs e)
+        {
+            FillProductByProductionDateReport();
+        }
 
+        public void FillProductByExpirationDateReport()
+        {
+            var query = (from product in context.Products
+                         from import in product.imports
+                         where import.Expiration_Date <= dateTimePicker6.Value
+                         select new
+                         {
+                             productID = product.id,
+                             ProductsName = import.Product.name,
+                             import.Store.address,
+                             Quantity = import.Quantity,
+                             import.Production_Date,
+                             import.Expiration_Date
+                         }).ToList();
+            dataGridView3.DataSource = query;
+        }
 
-
-
-
+        private void DisplayByExpirationDatebtn_Click(object sender, EventArgs e)
+        {
+            FillProductByExpirationDateReport();
+        }
         #endregion
     }
 }

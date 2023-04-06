@@ -126,6 +126,8 @@
             this.ProductIdcbox2 = new System.Windows.Forms.ComboBox();
             this.CreateExportbtn = new System.Windows.Forms.Button();
             this.TransferProducts = new System.Windows.Forms.TabPage();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
             this.listBox7 = new System.Windows.Forms.ListBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -144,9 +146,33 @@
             this.label44 = new System.Windows.Forms.Label();
             this.ProductIdcbox3 = new System.Windows.Forms.ComboBox();
             this.Transferbtn = new System.Windows.Forms.Button();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
             this.StoreReport = new System.Windows.Forms.TabPage();
+            this.label49 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label48 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label47 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ProductReport = new System.Windows.Forms.TabPage();
+            this.DisplayProductReport = new System.Windows.Forms.Button();
+            this.label53 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.label51 = new System.Windows.Forms.Label();
+            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label52 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.DisplayByProductionDatebtn = new System.Windows.Forms.Button();
+            this.DisplayByExpirationDatebtn = new System.Windows.Forms.Button();
+            this.label54 = new System.Windows.Forms.Label();
+            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
+            this.label55 = new System.Windows.Forms.Label();
+            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.StoreTab.SuspendLayout();
             this.ProductTab.SuspendLayout();
@@ -155,6 +181,12 @@
             this.Importstab.SuspendLayout();
             this.Exportstab.SuspendLayout();
             this.TransferProducts.SuspendLayout();
+            this.StoreReport.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.ProductReport.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -167,6 +199,8 @@
             this.tabControl1.Controls.Add(this.Exportstab);
             this.tabControl1.Controls.Add(this.TransferProducts);
             this.tabControl1.Controls.Add(this.StoreReport);
+            this.tabControl1.Controls.Add(this.ProductReport);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -1209,6 +1243,26 @@
             this.TransferProducts.Text = "Transfer Products";
             this.TransferProducts.UseVisualStyleBackColor = true;
             // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label46.Location = new System.Drawing.Point(854, 12);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(36, 25);
+            this.label46.TabIndex = 65;
+            this.label46.Text = "To";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label45.Location = new System.Drawing.Point(494, 12);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(57, 25);
+            this.label45.TabIndex = 64;
+            this.label45.Text = "From";
+            // 
             // listBox7
             // 
             this.listBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -1379,28 +1433,15 @@
             this.Transferbtn.UseVisualStyleBackColor = true;
             this.Transferbtn.Click += new System.EventHandler(this.Transferbtn_Click);
             // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label45.Location = new System.Drawing.Point(494, 12);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(57, 25);
-            this.label45.TabIndex = 64;
-            this.label45.Text = "From";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label46.Location = new System.Drawing.Point(854, 12);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(36, 25);
-            this.label46.TabIndex = 65;
-            this.label46.Text = "To";
-            // 
             // StoreReport
             // 
+            this.StoreReport.Controls.Add(this.label49);
+            this.StoreReport.Controls.Add(this.dateTimePicker2);
+            this.StoreReport.Controls.Add(this.label48);
+            this.StoreReport.Controls.Add(this.dateTimePicker1);
+            this.StoreReport.Controls.Add(this.dataGridView1);
+            this.StoreReport.Controls.Add(this.label47);
+            this.StoreReport.Controls.Add(this.comboBox1);
             this.StoreReport.Location = new System.Drawing.Point(4, 25);
             this.StoreReport.Name = "StoreReport";
             this.StoreReport.Padding = new System.Windows.Forms.Padding(3);
@@ -1408,6 +1449,269 @@
             this.StoreReport.TabIndex = 7;
             this.StoreReport.Text = "Store Report";
             this.StoreReport.UseVisualStyleBackColor = true;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label49.Location = new System.Drawing.Point(592, 74);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(36, 25);
+            this.label49.TabIndex = 69;
+            this.label49.Text = "To";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(691, 77);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(251, 22);
+            this.dateTimePicker2.TabIndex = 68;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label48.Location = new System.Drawing.Point(592, 19);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(57, 25);
+            this.label48.TabIndex = 67;
+            this.label48.Text = "From";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(691, 22);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(251, 22);
+            this.dateTimePicker1.TabIndex = 66;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(45, 118);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(977, 397);
+            this.dataGridView1.TabIndex = 65;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label47.Location = new System.Drawing.Point(26, 38);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(83, 25);
+            this.label47.TabIndex = 64;
+            this.label47.Text = "Store ID";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(171, 35);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(289, 33);
+            this.comboBox1.TabIndex = 63;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // ProductReport
+            // 
+            this.ProductReport.Controls.Add(this.DisplayProductReport);
+            this.ProductReport.Controls.Add(this.label53);
+            this.ProductReport.Controls.Add(this.comboBox3);
+            this.ProductReport.Controls.Add(this.label50);
+            this.ProductReport.Controls.Add(this.dateTimePicker3);
+            this.ProductReport.Controls.Add(this.label51);
+            this.ProductReport.Controls.Add(this.dateTimePicker4);
+            this.ProductReport.Controls.Add(this.dataGridView2);
+            this.ProductReport.Controls.Add(this.label52);
+            this.ProductReport.Controls.Add(this.comboBox2);
+            this.ProductReport.Location = new System.Drawing.Point(4, 25);
+            this.ProductReport.Name = "ProductReport";
+            this.ProductReport.Padding = new System.Windows.Forms.Padding(3);
+            this.ProductReport.Size = new System.Drawing.Size(1048, 535);
+            this.ProductReport.TabIndex = 8;
+            this.ProductReport.Text = "Product Report";
+            this.ProductReport.UseVisualStyleBackColor = true;
+            // 
+            // DisplayProductReport
+            // 
+            this.DisplayProductReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.DisplayProductReport.Location = new System.Drawing.Point(885, 22);
+            this.DisplayProductReport.Name = "DisplayProductReport";
+            this.DisplayProductReport.Size = new System.Drawing.Size(137, 77);
+            this.DisplayProductReport.TabIndex = 79;
+            this.DisplayProductReport.Text = "Display";
+            this.DisplayProductReport.UseVisualStyleBackColor = true;
+            this.DisplayProductReport.Click += new System.EventHandler(this.DisplayProductReport_Click);
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label53.Location = new System.Drawing.Point(27, 74);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(83, 25);
+            this.label53.TabIndex = 78;
+            this.label53.Text = "Store ID";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(172, 71);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(289, 33);
+            this.comboBox3.TabIndex = 77;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label50.Location = new System.Drawing.Point(506, 74);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(36, 25);
+            this.label50.TabIndex = 76;
+            this.label50.Text = "To";
+            // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Location = new System.Drawing.Point(605, 77);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(251, 22);
+            this.dateTimePicker3.TabIndex = 75;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label51.Location = new System.Drawing.Point(506, 19);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(57, 25);
+            this.label51.TabIndex = 74;
+            this.label51.Text = "From";
+            // 
+            // dateTimePicker4
+            // 
+            this.dateTimePicker4.Location = new System.Drawing.Point(605, 22);
+            this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.Size = new System.Drawing.Size(251, 22);
+            this.dateTimePicker4.TabIndex = 73;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(45, 118);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(977, 397);
+            this.dataGridView2.TabIndex = 72;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label52.Location = new System.Drawing.Point(27, 20);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(103, 25);
+            this.label52.TabIndex = 71;
+            this.label52.Text = "Product ID";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(172, 17);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(289, 33);
+            this.comboBox2.TabIndex = 70;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.DisplayByProductionDatebtn);
+            this.tabPage1.Controls.Add(this.DisplayByExpirationDatebtn);
+            this.tabPage1.Controls.Add(this.label54);
+            this.tabPage1.Controls.Add(this.dateTimePicker5);
+            this.tabPage1.Controls.Add(this.label55);
+            this.tabPage1.Controls.Add(this.dateTimePicker6);
+            this.tabPage1.Controls.Add(this.dataGridView3);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1048, 535);
+            this.tabPage1.TabIndex = 9;
+            this.tabPage1.Text = "Product by date";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // DisplayByProductionDatebtn
+            // 
+            this.DisplayByProductionDatebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.DisplayByProductionDatebtn.Location = new System.Drawing.Point(36, 52);
+            this.DisplayByProductionDatebtn.Name = "DisplayByProductionDatebtn";
+            this.DisplayByProductionDatebtn.Size = new System.Drawing.Size(395, 48);
+            this.DisplayByProductionDatebtn.TabIndex = 85;
+            this.DisplayByProductionDatebtn.Text = "Display By Production Date";
+            this.DisplayByProductionDatebtn.UseVisualStyleBackColor = true;
+            this.DisplayByProductionDatebtn.Click += new System.EventHandler(this.DisplayByProductionDatebtn_Click);
+            // 
+            // DisplayByExpirationDatebtn
+            // 
+            this.DisplayByExpirationDatebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.DisplayByExpirationDatebtn.Location = new System.Drawing.Point(626, 52);
+            this.DisplayByExpirationDatebtn.Name = "DisplayByExpirationDatebtn";
+            this.DisplayByExpirationDatebtn.Size = new System.Drawing.Size(369, 48);
+            this.DisplayByExpirationDatebtn.TabIndex = 84;
+            this.DisplayByExpirationDatebtn.Text = "Display By Expiration Date";
+            this.DisplayByExpirationDatebtn.UseVisualStyleBackColor = true;
+            this.DisplayByExpirationDatebtn.Click += new System.EventHandler(this.DisplayByExpirationDatebtn_Click);
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label54.Location = new System.Drawing.Point(21, 12);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(197, 25);
+            this.label54.TabIndex = 83;
+            this.label54.Text = "Production Date After";
+            // 
+            // dateTimePicker5
+            // 
+            this.dateTimePicker5.Location = new System.Drawing.Point(224, 16);
+            this.dateTimePicker5.Name = "dateTimePicker5";
+            this.dateTimePicker5.Size = new System.Drawing.Size(251, 22);
+            this.dateTimePicker5.TabIndex = 82;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label55.Location = new System.Drawing.Point(557, 13);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(206, 25);
+            this.label55.TabIndex = 81;
+            this.label55.Text = "Expiration Date Before";
+            // 
+            // dateTimePicker6
+            // 
+            this.dateTimePicker6.Location = new System.Drawing.Point(779, 15);
+            this.dateTimePicker6.Name = "dateTimePicker6";
+            this.dateTimePicker6.Size = new System.Drawing.Size(251, 22);
+            this.dateTimePicker6.TabIndex = 80;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(36, 118);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersWidth = 51;
+            this.dataGridView3.RowTemplate.Height = 24;
+            this.dataGridView3.Size = new System.Drawing.Size(977, 397);
+            this.dataGridView3.TabIndex = 73;
             // 
             // Form1
             // 
@@ -1433,6 +1737,15 @@
             this.Exportstab.PerformLayout();
             this.TransferProducts.ResumeLayout(false);
             this.TransferProducts.PerformLayout();
+            this.StoreReport.ResumeLayout(false);
+            this.StoreReport.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ProductReport.ResumeLayout(false);
+            this.ProductReport.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1558,6 +1871,32 @@
         private System.Windows.Forms.ComboBox ProductIdcbox3;
         private System.Windows.Forms.Button Transferbtn;
         private System.Windows.Forms.TabPage StoreReport;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TabPage ProductReport;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button DisplayProductReport;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Button DisplayByProductionDatebtn;
+        private System.Windows.Forms.Button DisplayByExpirationDatebtn;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.DateTimePicker dateTimePicker5;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.DateTimePicker dateTimePicker6;
+        private System.Windows.Forms.DataGridView dataGridView3;
     }
 }
 
